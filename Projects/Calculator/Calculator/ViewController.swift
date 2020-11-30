@@ -1,4 +1,4 @@
-//
+//  Brett Walton
 //  ViewController.swift
 //  Calculator
 //
@@ -30,19 +30,10 @@ class ViewController: UIViewController {
             label.text = label.text! + "."
         }
         else {
-            //if label.text != "" {
             label.text = label.text! + String(sender.tag-1)
             numOnScreen = Double(label.text!)!
             }
-//            if label.text == "0" {
-//                label.text = String(sender.tag-1)
-//                numOnScreen = Double(label.text!)!
-//            }
-//            else {
-//                label.text = String(sender.tag-1)
-//                numOnScreen = Double(label.text!)!
-//            }
-        
+
     }
     
     @IBAction func buttons(_ sender: UIButton) {
