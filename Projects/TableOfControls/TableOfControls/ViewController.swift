@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     private var controls: [Any] = ["Slider: ", "Segmented: ", "Text: ", "Stepper: ", "Switch: "]
-    private var values: [Any] = ["0", "Hello", "Enter Text..", 0, true]
+    private var values: [Any] = ["0", "Hello", "Enter Text..", "0", "On"]
     @IBOutlet weak var todoListTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,9 +19,6 @@ class ViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
-    //let storyboard = UIStoryboard(name: "Main", bundle: nil)
-   // let sliderVC = storyboard.instantiateViewController(withIdentifier: "SliderViewController") as! SliderViewController
-
 }
 
 extension ViewController: UITableViewDataSource {
@@ -61,14 +58,23 @@ extension ViewController: UITableViewDelegate {
         
     case 2: //text field
         let textVC = storyboard.instantiateViewController(identifier: "TextViewController") as! TextViewController
+        let fieldToEdit = self.values[indexPath.row]
+        textVC.editLabel = fieldToEdit as? String
+        textVC.textDelegate = self
         self.navigationController?.pushViewController(textVC, animated: true)
         
     case 3: //stepper
         let stepperVC = storyboard.instantiateViewController(identifier: "StepperViewController") as! StepperViewController
+        let fieldToEdit = self.values[indexPath.row]
+        stepperVC.editLabel = fieldToEdit as? String
+        stepperVC.stepDelegate = self
         self.navigationController?.pushViewController(stepperVC, animated: true)
         
     default: //switch
         let switchVC = storyboard.instantiateViewController(identifier: "SwitchViewController") as! SwitchViewController
+        let fieldToEdit = self.values[indexPath.row]
+        switchVC.editLabel = fieldToEdit as? String
+        switchVC.switchDelegate = self
         self.navigationController?.pushViewController(switchVC, animated: true)
     }
     tableView.reloadData()
@@ -91,6 +97,31 @@ extension ViewController: SegmentedViewControllerDelegate {
         self.todoListTableView.reloadData()
     }
 }
+
+extension ViewController: TextViewControllerDelegate {
+    func updateText(with newText: String) {
+        let textSelectedIndex = self.todoListTableView.indexPathForSelectedRow?.row
+        self.values[textSelectedIndex ?? 2] = newText
+        self.todoListTableView.reloadData()
+    }
+}
+
+extension ViewController: StepperViewControllerDelegate {
+    func stepperUpdate(with newStep: String) {
+        self.values[3] = newStep
+        self.todoListTableView.reloadData()
+    }
+}
+
+extension ViewController: SwitchViewControllerDelegate {
+    func switchUpdate(with newSwitch: String) {
+        self.values[4] = newSwitch
+        self.todoListTableView.reloadData()
+    }
+    
+    
+}
+
     
     
 

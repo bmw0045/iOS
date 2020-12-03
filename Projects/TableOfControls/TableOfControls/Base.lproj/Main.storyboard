@@ -66,7 +66,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="saveSlider:" destination="ykz-7u-sWD" eventType="touchUpInside" id="i35-Kc-5Zm"/>
+                                    <action selector="saveText:" destination="ykz-7u-sWD" eventType="touchUpInside" id="KmD-q2-U3A"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -83,6 +83,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jUf-bR-fkA"/>
+                    <connections>
+                        <outlet property="textField" destination="uht-m0-i0j" id="CuI-xe-VFs"/>
+                        <outlet property="textLabel" destination="DJR-Dt-w0M" id="snu-aw-bgP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="agX-2e-HAn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -104,11 +108,14 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="saveSwitch:" destination="XD0-Ur-5kM" eventType="touchUpInside" id="FRu-LF-TDc"/>
+                                    <action selector="saveSwitch:" destination="XD0-Ur-5kM" eventType="touchUpInside" id="d9y-Et-qKK"/>
                                 </connections>
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7t7-fc-IeX">
                                 <rect key="frame" x="183" y="771" width="51" height="31"/>
+                                <connections>
+                                    <action selector="switcher:" destination="XD0-Ur-5kM" eventType="valueChanged" id="cZX-hJ-ZvC"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgH-Qu-3cq">
                                 <rect key="frame" x="193" y="421" width="28" height="54"/>
@@ -130,6 +137,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PcX-pj-lfi"/>
+                    <connections>
+                        <outlet property="switchButton" destination="7t7-fc-IeX" id="QNj-4w-oy2"/>
+                        <outlet property="switchLabel" destination="mgH-Qu-3cq" id="jDb-c1-5Mz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DEr-GB-p9q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -151,11 +162,14 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="saveSlider:" destination="V9H-7Y-YIc" eventType="touchUpInside" id="j3u-hG-ed2"/>
+                                    <action selector="saveStep:" destination="V9H-7Y-YIc" eventType="touchUpInside" id="OHb-aq-Uah"/>
                                 </connections>
                             </button>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="0PU-af-Q6k">
                                 <rect key="frame" x="160" y="780" width="94" height="32"/>
+                                <connections>
+                                    <action selector="stepperChanged:" destination="V9H-7Y-YIc" eventType="valueChanged" id="srS-Zr-sf6"/>
+                                </connections>
                             </stepper>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6f-ex-hWQ">
                                 <rect key="frame" x="193" y="427" width="28" height="54"/>
@@ -178,6 +192,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="KT0-bb-tcL"/>
+                    <connections>
+                        <outlet property="stepLabel" destination="w6f-ex-hWQ" id="cFK-cA-9eB"/>
+                        <outlet property="stepper" destination="0PU-af-Q6k" id="sYC-cT-yGd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Y5-HJ-nQr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
