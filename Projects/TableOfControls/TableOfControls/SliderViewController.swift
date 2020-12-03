@@ -16,12 +16,19 @@ protocol SliderViewControllerDelegate: class {
 
 class SliderViewController: UIViewController {
     @IBOutlet weak var sliderNumLabel: UILabel!
-   // @IBOutlet weak var slider: UISlider!
-    //self.sliderNumLabel = indexPath[0]
-   // sliderNumLabel.text = ViewController.initialValue
-    //@IBAction func sliderValueChanged(_ sender: UISlider) {
-    //}
+    var editLabel: String?
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.sliderNumLabel?.text = self.editLabel
+    }
+    @IBAction func editSlider(_ sender: UISlider) {
+        
+    }
+    
+    @IBAction func saveSlider(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
     func setLabel(labelValue: String) {
         
     }

@@ -8,8 +8,8 @@
 import UIKit
 
 class ViewController: UIViewController {
-    private var todos = ["0", "0", "0", "0", "0"]
-    
+    private var controls: [Any] = ["Slider: ", "Segmented: ", "Text: ", "Stepper: ", "Switch: "]
+    private var values: [Any] = ["12", 0, "Enter Text..", 0, true]
     @IBOutlet weak var todoListTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,34 +28,43 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
-        let todo = self.todos[indexPath.row]
-        cell.todoLabel.text = todo
+        let control = self.controls[indexPath.row]
+        let value = self.values[indexPath.row]
+        cell.todoLabel?.text = "\(control) \(value)"
         return cell
     }
     
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return self.todos.count
+    return self.controls.count
   }
 }
 extension ViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-   // self.todos.remove(at: indexPath.row)
-    let segueIdentifier: String
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
 //    var initialValue: String
     switch indexPath.row {
     case 0: //slider
-        segueIdentifier = "sliderSegue"
-       // initialValue = todos[0]
+        let sliderVC = storyboard.instantiateViewController(identifier: "SliderViewController") as! SliderViewController
+        let fieldToEdit = self.values[indexPath.row]
+        sliderVC.editLabel = fieldToEdit as? String
+        self.navigationController?.pushViewController(sliderVC, animated: true)
+    
     case 1: //segmented
-        segueIdentifier = "segmentedSegue"
-    case 2:
-        segueIdentifier = "textSegue"
-    case 3:
-        segueIdentifier = "stepperSegue"
-    default:
-        segueIdentifier = "switchSegue"
+        let segmentedVC = storyboard.instantiateViewController(identifier: "SegmentedViewController") as! SegmentedViewController
+        self.navigationController?.pushViewController(segmentedVC, animated: true)
+        
+    case 2: //text field
+        let textVC = storyboard.instantiateViewController(identifier: "TextViewController") as! TextViewController
+        self.navigationController?.pushViewController(textVC, animated: true)
+        
+    case 3: //stepper
+        let stepperVC = storyboard.instantiateViewController(identifier: "StepperViewController") as! StepperViewController
+        self.navigationController?.pushViewController(stepperVC, animated: true)
+        
+    default: //switch
+        let switchVC = storyboard.instantiateViewController(identifier: "SwitchViewController") as! SwitchViewController
+        self.navigationController?.pushViewController(switchVC, animated: true)
     }
-    self.performSegue(withIdentifier: segueIdentifier, sender: self)
     tableView.reloadData()
   }
 }

@@ -16,9 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X1J-IJ-ddL">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X1J-IJ-ddL">
                                 <rect key="frame" x="206" y="780" width="103.5" height="78"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
                                 <color key="backgroundColor" systemColor="systemGrayColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title=".">
@@ -320,9 +319,8 @@
                                     <action selector="buttons:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BID-FN-bxy"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="23f-fT-2fN">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="23f-fT-2fN">
                                 <rect key="frame" x="0.0" y="780" width="205" height="78"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGrayColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="0">
@@ -387,6 +385,16 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="X1J-IJ-ddL" secondAttribute="bottom" constant="4" id="3Jh-aP-yk4"/>
+                            <constraint firstItem="X1J-IJ-ddL" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.25" id="6vh-Cx-8um"/>
+                            <constraint firstItem="23f-fT-2fN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9gk-vK-rYi"/>
+                            <constraint firstItem="X1J-IJ-ddL" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.0870536" id="Lbc-Dw-8yx"/>
+                            <constraint firstItem="23f-fT-2fN" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.495169" id="T6E-BI-4tn"/>
+                            <constraint firstItem="23f-fT-2fN" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.0870536" id="Xgc-nM-nXN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="23f-fT-2fN" secondAttribute="bottom" constant="4" id="o0a-3v-gJj"/>
+                            <constraint firstItem="X1J-IJ-ddL" firstAttribute="leading" secondItem="23f-fT-2fN" secondAttribute="trailing" constant="1" id="qYc-n6-UE9"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="Calculator" destination="8bC-Xf-vdC" id="Euq-7S-t7V"/>

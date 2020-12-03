@@ -33,11 +33,6 @@
                     <navigationItem key="navigationItem" id="VEc-vD-klg"/>
                     <connections>
                         <outlet property="todoListTableView" destination="MuR-Gq-ksc" id="tXW-6G-Dg9"/>
-                        <segue destination="Owp-Ea-UX5" kind="show" identifier="sliderSegue" id="vs7-sb-w1o"/>
-                        <segue destination="da8-Zc-Jeu" kind="show" identifier="segmentedSegue" id="SuY-XF-ZNZ"/>
-                        <segue destination="ykz-7u-sWD" kind="show" identifier="textSegue" id="j4S-tQ-I0n"/>
-                        <segue destination="V9H-7Y-YIc" kind="show" identifier="stepperSegue" id="l6i-F3-5wP"/>
-                        <segue destination="XD0-Ur-5kM" kind="show" identifier="switchSegue" id="fCP-8a-XvH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -47,13 +42,13 @@
         <!--Text View Controller-->
         <scene sceneID="T8g-dK-o2g">
             <objects>
-                <viewController id="ykz-7u-sWD" customClass="TextViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TextViewController" id="ykz-7u-sWD" customClass="TextViewController" customModule="TableOfControls" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hCt-St-cgj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DJR-Dt-w0M">
-                                <rect key="frame" x="193" y="448" width="28" height="54"/>
+                                <rect key="frame" x="193" y="426" width="28" height="54"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -64,12 +59,15 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afw-Q7-zzz">
-                                <rect key="frame" x="331" y="128" width="53" height="42"/>
+                                <rect key="frame" x="331" y="84" width="53" height="42"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Save">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveSlider:" destination="ykz-7u-sWD" eventType="touchUpInside" id="i35-Kc-5Zm"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VUE-9Y-7ge"/>
@@ -93,18 +91,21 @@
         <!--Switch View Controller-->
         <scene sceneID="b3c-zG-rrs">
             <objects>
-                <viewController id="XD0-Ur-5kM" customClass="SwitchViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SwitchViewController" id="XD0-Ur-5kM" customClass="SwitchViewController" customModule="TableOfControls" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sgH-hl-wob">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GE3-60-fSk">
-                                <rect key="frame" x="331" y="128" width="53" height="42"/>
+                                <rect key="frame" x="331" y="84" width="53" height="42"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Save">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveSwitch:" destination="XD0-Ur-5kM" eventType="touchUpInside" id="FRu-LF-TDc"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgH-Qu-3cq">
                                 <rect key="frame" x="186" y="444" width="28" height="54"/>
@@ -137,18 +138,21 @@
         <!--Stepper View Controller-->
         <scene sceneID="Ufb-AX-tho">
             <objects>
-                <viewController id="V9H-7Y-YIc" customClass="StepperViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StepperViewController" id="V9H-7Y-YIc" customClass="StepperViewController" customModule="TableOfControls" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nSG-pA-k13">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CKF-Rl-gk4">
-                                <rect key="frame" x="331" y="128" width="53" height="42"/>
+                                <rect key="frame" x="331" y="84" width="53" height="42"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Save">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveSlider:" destination="V9H-7Y-YIc" eventType="touchUpInside" id="j3u-hG-ed2"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6f-ex-hWQ">
                                 <rect key="frame" x="193" y="421" width="28" height="54"/>
@@ -181,27 +185,33 @@
         <!--Slider View Controller-->
         <scene sceneID="cP0-uE-nFu">
             <objects>
-                <viewController id="Owp-Ea-UX5" customClass="SliderViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SliderViewController" id="Owp-Ea-UX5" customClass="SliderViewController" customModule="TableOfControls" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1wx-Ky-lFP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a70-ST-GOv">
-                                <rect key="frame" x="193" y="448" width="28" height="54"/>
+                                <rect key="frame" x="193" y="426" width="28" height="54"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="ltI-ix-VuL">
                                 <rect key="frame" x="39" y="757" width="337" height="31"/>
+                                <connections>
+                                    <action selector="editSlider:" destination="Owp-Ea-UX5" eventType="valueChanged" id="SSH-es-aDf"/>
+                                </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tbi-Xi-eux">
-                                <rect key="frame" x="331" y="128" width="53" height="42"/>
+                                <rect key="frame" x="331" y="84" width="53" height="42"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Save">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveSlider:" destination="Owp-Ea-UX5" eventType="touchUpInside" id="Jft-ab-h5U"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RQ9-uj-CSG"/>
@@ -225,13 +235,13 @@
         <!--Segmented View Controller-->
         <scene sceneID="0Ge-Hx-dxT">
             <objects>
-                <viewController id="da8-Zc-Jeu" customClass="SegmentedViewController" customModule="TableOfControls" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SegmentedViewController" id="da8-Zc-Jeu" customClass="SegmentedViewController" customModule="TableOfControls" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bag-cX-6Ma">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mdt-lD-7fM">
-                                <rect key="frame" x="193" y="448" width="28" height="54"/>
+                                <rect key="frame" x="193" y="426" width="28" height="54"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -245,12 +255,15 @@
                                 </segments>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gf9-oY-wm7">
-                                <rect key="frame" x="331" y="128" width="53" height="42"/>
+                                <rect key="frame" x="331" y="84" width="53" height="42"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Save">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveSlider:" destination="da8-Zc-Jeu" eventType="touchUpInside" id="w6p-Tw-U2k"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pkp-6l-uui"/>
