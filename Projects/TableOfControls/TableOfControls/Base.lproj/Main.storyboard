@@ -18,7 +18,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MuR-Gq-ksc">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -107,15 +107,15 @@
                                     <action selector="saveSwitch:" destination="XD0-Ur-5kM" eventType="touchUpInside" id="FRu-LF-TDc"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7t7-fc-IeX">
+                                <rect key="frame" x="183" y="771" width="51" height="31"/>
+                            </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgH-Qu-3cq">
-                                <rect key="frame" x="186" y="444" width="28" height="54"/>
+                                <rect key="frame" x="193" y="421" width="28" height="54"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7t7-fc-IeX">
-                                <rect key="frame" x="183" y="771" width="51" height="31"/>
-                            </switch>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Llz-hJ-RVu"/>
                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
@@ -144,7 +144,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CKF-Rl-gk4">
-                                <rect key="frame" x="331" y="84" width="53" height="42"/>
+                                <rect key="frame" x="330" y="84" width="54" height="42"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Save">
@@ -154,15 +154,15 @@
                                     <action selector="saveSlider:" destination="V9H-7Y-YIc" eventType="touchUpInside" id="j3u-hG-ed2"/>
                                 </connections>
                             </button>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="0PU-af-Q6k">
+                                <rect key="frame" x="160" y="780" width="94" height="32"/>
+                            </stepper>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6f-ex-hWQ">
-                                <rect key="frame" x="193" y="421" width="28" height="54"/>
+                                <rect key="frame" x="193" y="427" width="28" height="54"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="0PU-af-Q6k">
-                                <rect key="frame" x="160" y="780" width="94" height="32"/>
-                            </stepper>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HVP-Tr-mIK"/>
                         <color key="backgroundColor" systemColor="systemRedColor"/>
@@ -174,6 +174,7 @@
                             <constraint firstItem="HVP-Tr-mIK" firstAttribute="trailing" secondItem="CKF-Rl-gk4" secondAttribute="trailing" constant="30" id="Zc8-FZ-Wtq"/>
                             <constraint firstItem="HVP-Tr-mIK" firstAttribute="trailing" secondItem="0PU-af-Q6k" secondAttribute="trailing" constant="160" id="mMS-wd-4qp"/>
                             <constraint firstItem="0PU-af-Q6k" firstAttribute="leading" secondItem="HVP-Tr-mIK" secondAttribute="leading" constant="160" id="s0p-Tu-D61"/>
+                            <constraint firstItem="CKF-Rl-gk4" firstAttribute="leading" secondItem="HVP-Tr-mIK" secondAttribute="leading" constant="330" id="yzy-VF-cAl"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="KT0-bb-tcL"/>
@@ -199,7 +200,7 @@
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="ltI-ix-VuL">
                                 <rect key="frame" x="39" y="757" width="337" height="31"/>
                                 <connections>
-                                    <action selector="editSlider:" destination="Owp-Ea-UX5" eventType="valueChanged" id="SSH-es-aDf"/>
+                                    <action selector="sliderValueChanged:" destination="Owp-Ea-UX5" eventType="valueChanged" id="y9i-6g-J8d"/>
                                 </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tbi-Xi-eux">
@@ -227,6 +228,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="rUw-SW-x7S"/>
+                    <connections>
+                        <outlet property="slider" destination="ltI-ix-VuL" id="kZS-iQ-RAC"/>
+                        <outlet property="sliderNumLabel" destination="a70-ST-GOv" id="LbK-IO-hCQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YMJ-hb-gro" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -249,10 +254,13 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="A9r-jN-qjO">
                                 <rect key="frame" x="100" y="781" width="214" height="32"/>
                                 <segments>
-                                    <segment title="0"/>
-                                    <segment title="1"/>
-                                    <segment title="2"/>
+                                    <segment title="Hello"/>
+                                    <segment title="Hola"/>
+                                    <segment title="Bonjour"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentChanged:" destination="da8-Zc-Jeu" eventType="valueChanged" id="eE6-RB-ZQK"/>
+                                </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gf9-oY-wm7">
                                 <rect key="frame" x="331" y="84" width="53" height="42"/>
@@ -262,7 +270,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="saveSlider:" destination="da8-Zc-Jeu" eventType="touchUpInside" id="w6p-Tw-U2k"/>
+                                    <action selector="saveSeg:" destination="da8-Zc-Jeu" eventType="touchUpInside" id="vum-Nx-Uvp"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -322,6 +330,9 @@
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

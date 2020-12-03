@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     private var controls: [Any] = ["Slider: ", "Segmented: ", "Text: ", "Stepper: ", "Switch: "]
-    private var values: [Any] = ["12", 0, "Enter Text..", 0, true]
+    private var values: [Any] = ["0", "Hello", "Enter Text..", 0, true]
     @IBOutlet weak var todoListTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,11 +46,17 @@ extension ViewController: UITableViewDelegate {
     case 0: //slider
         let sliderVC = storyboard.instantiateViewController(identifier: "SliderViewController") as! SliderViewController
         let fieldToEdit = self.values[indexPath.row]
+        let initSlider = self.values[indexPath.row]
         sliderVC.editLabel = fieldToEdit as? String
+        sliderVC.initialSlider = initSlider as? Float
+        sliderVC.delegate = self
         self.navigationController?.pushViewController(sliderVC, animated: true)
     
     case 1: //segmented
         let segmentedVC = storyboard.instantiateViewController(identifier: "SegmentedViewController") as! SegmentedViewController
+        let fieldToEdit = self.values[indexPath.row]
+        segmentedVC.editLabel = fieldToEdit as? String
+        segmentedVC.segDelegate = self
         self.navigationController?.pushViewController(segmentedVC, animated: true)
         
     case 2: //text field
@@ -67,5 +73,24 @@ extension ViewController: UITableViewDelegate {
     }
     tableView.reloadData()
   }
+    
 }
+
+extension ViewController: SliderViewControllerDelegate {
+    func update(with newText: String) {
+           let selectedIndex = self.todoListTableView.indexPathForSelectedRow?.row
+            self.values[selectedIndex ?? 0] = newText
+            self.todoListTableView.reloadData()
+    }
+}
+
+extension ViewController: SegmentedViewControllerDelegate {
+    func updateSeg(with segNewText: String) {
+        let segSelectedIndex = self.todoListTableView.indexPathForSelectedRow?.row
+        self.values[segSelectedIndex ?? 1] = segNewText
+        self.todoListTableView.reloadData()
+    }
+}
+    
+    
 
