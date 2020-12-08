@@ -32,6 +32,6 @@ class ViewController: UIViewController {
         guard let fileData = try? Data(contentsOf: fileURL) else {return}
         print(fileData)
         let pokemon = try? JSONDecoder().decode(CodablePokemon.self, from: fileData)
-        print(pokemon)
+        print(pokemon ?? "Pokemon Does Not Exist")
     }
 }
