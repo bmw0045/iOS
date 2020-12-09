@@ -9,8 +9,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var pokemonTableView: UITableView!
+    @IBOutlet weak var pokemonImageView: UIImageView?
+    @IBOutlet weak var pokemonNameLabel: UILabel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.pokemonTableView.register(UINib(nibName: "PokemonTableViewCell", bundle: nil), forCellReuseIdentifier: "PokemonTableViewCell")
         // Do any additional setup after loading the view.
         // let mySingleton = TheSingleton.shared
         //parseDataJSONSerialization()

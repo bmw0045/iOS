@@ -11,12 +11,12 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PokedexProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="LoremPicsumTable" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hTF-ca-fvP">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ias-wn-NER">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
@@ -24,19 +24,19 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hTF-ca-fvP" secondAttribute="bottom" id="4wi-Ra-UXy"/>
-                            <constraint firstItem="hTF-ca-fvP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="JV9-JM-cjl"/>
-                            <constraint firstItem="hTF-ca-fvP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="NiK-Qf-iHR"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hTF-ca-fvP" secondAttribute="trailing" id="xbD-xw-iyk"/>
+                            <constraint firstItem="Ias-wn-NER" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="BvC-vr-Zvd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ias-wn-NER" secondAttribute="trailing" id="dqL-tK-6gv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ias-wn-NER" secondAttribute="bottom" id="paG-xB-EGQ"/>
+                            <constraint firstItem="Ias-wn-NER" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zjH-p3-H4F"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="pokemonTableView" destination="hTF-ca-fvP" id="SJo-zk-i85"/>
+                        <outlet property="picsumTableView" destination="Ias-wn-NER" id="PPQ-Eg-rn0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-197" y="36"/>
+            <point key="canvasLocation" x="139" y="64"/>
         </scene>
     </scenes>
     <resources>
