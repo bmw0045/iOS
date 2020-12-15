@@ -9,8 +9,10 @@ import Foundation
 
 struct Pokemon: Decodable {
     let name: String
+    let id: Int
     let baseExp: Int
     let weight: Int
+    let height: Int
     let abilities: [Ability]
     let species: Species
     let sprites: Sprites
@@ -18,9 +20,11 @@ struct Pokemon: Decodable {
     
     enum CodingKeys: String, CodingKey {
         case name
+        case id
         case baseExp = "base_experience"
         case weight
         case abilities
+        case height
         case species
         case sprites
         case allMoves = "moves"
@@ -116,6 +120,8 @@ struct Moves: Decodable {
         }
     }
 }
+
+
 
 struct Ability: Decodable {
     let isHidden: Bool

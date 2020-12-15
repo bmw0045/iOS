@@ -22,13 +22,13 @@ class PokemonTableViewCell: UITableViewCell {
             guard let data = data else {return}
             DispatchQueue.main.async {
                 self.pokemonImageView.image = UIImage(data: data)
+                self.pokemonImageView.layoutIfNeeded()
             }
         }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     

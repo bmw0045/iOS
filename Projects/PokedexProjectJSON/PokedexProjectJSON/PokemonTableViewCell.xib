@@ -20,10 +20,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="75" height="44"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="75" id="47E-4e-VcF"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="Ppq-qX-MLT"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V2t-I5-Ddc">
                         <rect key="frame" x="85" y="0.0" width="235" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="8WR-Zb-OWn"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
