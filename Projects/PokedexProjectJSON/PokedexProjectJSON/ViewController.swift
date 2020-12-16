@@ -15,7 +15,6 @@ class ViewController: UIViewController {
     var pokemonArray: [Pokemon] = []
     var totalPokemon = 150
     var pokeBatch: [Result] = []
-    let baseURL: String = "https://pokeapi.co/api/v2/pokemon/"
     var nextURL: String = ""
     var itemsPerBatch = 30
     var offset = 0
@@ -25,9 +24,7 @@ class ViewController: UIViewController {
         self.pokemonTableView.register(UINib(nibName: "PokemonTableViewCell", bundle: nil), forCellReuseIdentifier: "PokemonTableViewCell")
         self.pokemonTableView.dataSource = self
         self.pokemonTableView.delegate = self
-        self.pokemonTableView.prefetchDataSource = self
-        //self.fetchPokemon()
-        //self.getAllPokemon()
+        //self.pokemonTableView.prefetchDataSource = self
         self.getAllPokemon()
         self.getInitialData()
         // Do any additional setup after loading the view.
@@ -39,7 +36,6 @@ class ViewController: UIViewController {
         getPokemonData()
     }
     func getPokemonData() {
-         //self.fetchPokemon()
         if isArrayFull() == false {
          guard let urlObj = URL(string: nextURL) else {return}
          URLSession.shared.dataTask(with: urlObj) {[weak self](data, response, error) in
@@ -60,14 +56,7 @@ class ViewController: UIViewController {
          .resume()
         }
      }
-    func fetchPokemon() {
-        var pokeLinkArr: [String] = []
-        for i in 1...151 {
-            let iString = "\(i)"
-            let pokeLink = "https://pokeapi.co/api/v2/pokemon/" + iString
-            pokeLinkArr.append(pokeLink)
-        }
-    }
+
     func createPokemonURL() -> String {
         let apiLink = "https://pokeapi.co/api/v2/pokemon/"
         return apiLink
@@ -96,69 +85,6 @@ class ViewController: UIViewController {
             return true
         }
     }
-//    private func getAllPokemon(pageNumber: Int, completion: @escaping () -> Void) {
-//        let group = DispatchGroup()
-//        for i in 1...151 {
-//            group.enter()
-//            let iString = "\(i)"
-//            NetworkManager.shared.getDecodedObject(from: self.createPokemonURL() + iString) {
-//                (pokemon: Pokemon?, error) in
-//                guard let pokemon = pokemon else {return}
-//                self.pokeBatch.append(pokemon)
-//                group.leave()
-//            }
-//            self.pokemonArray += pokeBatch
-//            completion()
-//        }
-//        group.notify(queue: .main) {
-//            //self.pokemonTableView.reloadData()
-//        }
-//    }
-//    private func getAllPokemon() {
-//        let group = DispatchGroup()
-//        var i = 30
-//        for _ in 1...5 {
-//            group.enter()
-//            let iString = "\(i)"
-//            NetworkManager.shared.getDecodedObject(from: self.createPokemonURL() + iString) {
-//                (pokemon: Pokemon?, error) in
-//                guard let pokemon = pokemon else {return}
-//                self.pokemonArray.append(pokemon)
-//                group.leave()
-//            }
-//            i += 30
-//        }
-//        group.notify(queue: .main) {
-//            self.pokemonTableView.reloadData()
-//        }
-//    }
-//    private func getAllPokemon() {
-//        let group = DispatchGroup()
-//        for _ in 1...151 {
-//            group.enter()
-//           // let iString = "\(i)"
-//            NetworkManager.shared.getDecodedObject(from: self.createPokemonURL()) { (pokemon: Pokemon?, error) in
-//                guard let pokemon = pokemon else {
-//                    if let error = error {
-//                        let alert = self.generateAlert(from: error)
-//                        DispatchQueue.main.async {
-//                            self.present(alert, animated: true, completion: nil)
-//                        }
-//                    }
-//                    return
-//                }
-//                DispatchQueue.main.async {
-//                    self.pokemonTextLabel?.text = pokemon.name
-//                }
-//                NetworkManager.shared.getImageData(from: (pokemon.sprites.frontDefault)!) {data, error in
-//                    guard let data = data else {return}
-//                    DispatchQueue.main.async {
-//                        self.pokemonImageView?.image = UIImage(data: data)
-//                    }
-//                }
-//            }
-//        }
-//    }
     
     private func generateAlert(from error: Error) -> UIAlertController {
         let alert = UIAlertController(title: "Error", message: "We ran into an Error Description: \(error.localizedDescription)", preferredStyle: .alert)
@@ -172,18 +98,15 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return self.pokemonArray.count
         return self.pokeBatch.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let count = pokeBatch.count
-                 let lastElement = count - 1
-    
-                 if indexPath.row == lastElement {
-                     getPokemonData()
-                 }
-        
+            let lastElement = count - 1
+            if indexPath.row == lastElement {
+                getPokemonData()
+            }
         let cell = tableView.dequeueReusableCell(withIdentifier: "PokemonTableViewCell", for: indexPath) as! PokemonTableViewCell
         cell.configure(with: self.pokemonArray[indexPath.row])
         return cell
@@ -200,7 +123,7 @@ extension ViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let lastIndexPath = indexPath.row
+        //let lastIndexPath = indexPath.row
         if indexPath.row == pokemonArray.count - 1 {
             if pokemonArray.count < totalPokemon {
                 //self.getAllPokemon(pageNumber)
@@ -215,15 +138,15 @@ extension ViewController: UITableViewDelegate {
     }
 }
 
-extension ViewController: UITableViewDataSourcePrefetching {
-    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
-        let lastIndexPath = IndexPath(row: self.pokemonArray.count - 1, section: 0)
-        guard indexPaths.contains(lastIndexPath) else {return}
-        //self.pageNumber += 1
-        DispatchQueue.main.async {
-            self.pokemonTableView.reloadData()
-        }
-        //self.getAllPokemon()
-    }
-}
+//extension ViewController: UITableViewDataSourcePrefetching {
+//    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+//        let lastIndexPath = IndexPath(row: self.pokemonArray.count - 1, section: 0)
+//        guard indexPaths.contains(lastIndexPath) else {return}
+//        //self.pageNumber += 1
+//        DispatchQueue.main.async {
+//            self.pokemonTableView.reloadData()
+//        }
+//        //self.getAllPokemon()
+//    }
+//}
 
