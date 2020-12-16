@@ -14,8 +14,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var pokemonTextLabel: UILabel?
     var pokemonArray: [Pokemon] = []
     var totalPokemon = 151
-    var pokeBatch: [Pokemon] = []
+    var pokeBatch: [Result] = []
     let baseURL: String = "https://pokeapi.co/api/v2/pokemon/"
+    var nextURL: String = ""
     var itemsPerBatch = 30
     var offset = 0
     
@@ -28,12 +29,34 @@ class ViewController: UIViewController {
         //self.fetchPokemon()
         //self.getAllPokemon()
         self.getAllPokemon()
-        
-        
-        
+        self.getInitialData()
         // Do any additional setup after loading the view.
     }
 
+    func getInitialData() {
+        pokeBatch = []
+        nextURL = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=30"
+        getPokemonData()
+    }
+    func getPokemonData() {
+         //self.fetchPokemon()
+         guard let urlObj = URL(string: nextURL) else {return}
+         URLSession.shared.dataTask(with: urlObj) {[weak self](data, response, error) in
+             guard let data = data else {return}
+             
+             do {
+                 let downloadedPokemon = try JSONDecoder().decode(PaginatedPokemon.self, from: data)
+                self?.pokeBatch.append(contentsOf: downloadedPokemon.results)
+                 self?.nextURL = downloadedPokemon.next
+                 
+                 DispatchQueue.main.async {
+                     self?.pokemonTableView.reloadData()
+                 }
+             } catch {
+                 print(error)
+             }
+         }.resume()
+     }
     func fetchPokemon() {
         var pokeLinkArr: [String] = []
         for i in 1...151 {
@@ -139,10 +162,17 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.pokemonArray.count
+        //return self.pokemonArray.count
+        return self.pokeBatch.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let count = pokeBatch.count
+                 let lastElement = count - 1
+                 if indexPath.row == lastElement {
+                     //call get api for next page
+                     getPokemonData()
+                 }
         let cell = tableView.dequeueReusableCell(withIdentifier: "PokemonTableViewCell", for: indexPath) as! PokemonTableViewCell
         cell.configure(with: self.pokemonArray[indexPath.row])
         return cell
