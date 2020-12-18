@@ -20,6 +20,7 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "Info"
         getPlanet()
         self.nameLabel.text = myCharacter.name
         self.hairLabel.text? = "Hair Color: \(myCharacter.hair.capitalized)"

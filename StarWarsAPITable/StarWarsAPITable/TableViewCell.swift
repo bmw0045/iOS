@@ -22,6 +22,7 @@ class TableViewCell: UITableViewCell {
     
     func configure(with character: SWCharacterResult) {
         self.nameLabel.text = character.name
+        self.nameLabel.textAlignment = NSTextAlignment.center
         //self.eyeLabel.text = "E: \(character.eyes)"
         //self.hairLabel.text = "H: \(character.hair)"
         //self.planetLabel.text = planet.name

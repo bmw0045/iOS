@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var characterTableView: UITableView!
+    
     //var characters: [
     var characters: [PaginatedCharacter] = []
     var characterBatch: [SWCharacterResult] = []
@@ -19,6 +20,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "Star Wars Characters"
         // Do any additional setup after loading the view.
         self.characterTableView.dataSource = self
         self.characterTableView.delegate = self
