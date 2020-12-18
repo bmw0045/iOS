@@ -22,8 +22,8 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         getPlanet()
         self.nameLabel.text = myCharacter.name
-        self.hairLabel.text = "Hair Color: \(myCharacter.hair)"
-        self.eyeLabel.text = "Eye Color: \(myCharacter.eyes)"
+        self.hairLabel.text? = "Hair Color: \(myCharacter.hair.capitalized)"
+        self.eyeLabel.text = "Eye Color: \(myCharacter.eyes.capitalized)"
         
     }
     
