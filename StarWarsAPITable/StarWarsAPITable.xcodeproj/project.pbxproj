@@ -19,6 +19,7 @@
 		3A738F43258CF42600E6E775 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A738F42258CF42600E6E775 /* NetworkManager.swift */; };
 		3A738F48258D0BEB00E6E775 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A738F47258D0BEB00E6E775 /* DetailViewController.swift */; };
 		3A738F4B258D10F800E6E775 /* HomeWorld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A738F4A258D10F800E6E775 /* HomeWorld.swift */; };
+		3A738F4E25904C1500E6E775 /* Films.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A738F4D25904C1500E6E775 /* Films.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		3A738F42258CF42600E6E775 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		3A738F47258D0BEB00E6E775 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		3A738F4A258D10F800E6E775 /* HomeWorld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWorld.swift; sourceTree = "<group>"; };
+		3A738F4D25904C1500E6E775 /* Films.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Films.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				3A738F42258CF42600E6E775 /* NetworkManager.swift */,
 				3A738F47258D0BEB00E6E775 /* DetailViewController.swift */,
 				3A738F4A258D10F800E6E775 /* HomeWorld.swift */,
+				3A738F4D25904C1500E6E775 /* Films.swift */,
 			);
 			path = StarWarsAPITable;
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 				3A738F2A258CEF7500E6E775 /* ViewController.swift in Sources */,
 				3A738F3C258CF04300E6E775 /* TableViewCell.swift in Sources */,
 				3A738F4B258D10F800E6E775 /* HomeWorld.swift in Sources */,
+				3A738F4E25904C1500E6E775 /* Films.swift in Sources */,
 				3A738F26258CEF7500E6E775 /* AppDelegate.swift in Sources */,
 				3A738F28258CEF7500E6E775 /* SceneDelegate.swift in Sources */,
 				3A738F40258CF32E00E6E775 /* PaginatedCharacter.swift in Sources */,

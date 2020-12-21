@@ -22,13 +22,16 @@ struct SWCharacterResult: Decodable {
     let hair: String
     let eyes: String
     let planet: String
+    let films: [String]
     
     enum ResultCodingKeys: String, CodingKey {
         case name
         case hair = "hair_color"
         case eyes = "eye_color"
         case planet = "homeworld"
+        case films
     }
+    
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: ResultCodingKeys.self)
@@ -36,5 +39,6 @@ struct SWCharacterResult: Decodable {
         self.hair = try container.decode(String.self, forKey: .hair)
         self.eyes = try container.decode(String.self, forKey: .eyes)
         self.planet = try container.decode(String.self, forKey: .planet)
+        self.films = try container.decode([String].self, forKey: .films)
     }
 }

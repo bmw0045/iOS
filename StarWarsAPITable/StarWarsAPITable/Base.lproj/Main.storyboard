@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vjz-P9-dOT">
-    <device id="retina6_1" orientation="landscape" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,11 +13,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="StarWarsAPITable" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cJz-RG-veI">
-                                <rect key="frame" x="44" y="44" width="808" height="349"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -45,46 +45,53 @@
             <objects>
                 <viewController storyboardIdentifier="DetailViewController" id="U7b-WR-Uur" customClass="DetailViewController" customModule="StarWarsAPITable" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6iw-xa-adE" customClass="DetailVC" customModule="StarWarsAPITable" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="q9b-1w-3bI">
-                                <rect key="frame" x="44" y="44" width="808" height="349"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nch-sA-2sF">
-                                        <rect key="frame" x="0.0" y="0.0" width="808" height="87.5"/>
-                                        <color key="backgroundColor" systemColor="systemFillColor"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="155"/>
+                                        <color key="backgroundColor" systemColor="systemGray4Color"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JII-IG-c3Q">
-                                        <rect key="frame" x="0.0" y="89.5" width="808" height="81"/>
-                                        <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                        <rect key="frame" x="0.0" y="157" width="414" height="154.5"/>
+                                        <color key="backgroundColor" systemColor="systemFillColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cvp-Jl-SjA">
-                                        <rect key="frame" x="0.0" y="172.5" width="808" height="87.5"/>
+                                        <rect key="frame" x="0.0" y="313.5" width="414" height="155"/>
                                         <color key="backgroundColor" systemColor="systemGray4Color"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EpU-pi-WvL">
-                                        <rect key="frame" x="0.0" y="262" width="808" height="87"/>
+                                        <rect key="frame" x="0.0" y="470.5" width="414" height="154.5"/>
                                         <color key="backgroundColor" systemColor="systemFillColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ybi-Nw-gjx">
+                                        <rect key="frame" x="0.0" y="627" width="414" height="147"/>
+                                        <color key="backgroundColor" systemColor="systemGray4Color"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Nch-sA-2sF" firstAttribute="height" secondItem="q9b-1w-3bI" secondAttribute="height" multiplier="0.25" id="nMt-5d-eai"/>
-                                    <constraint firstItem="Cvp-Jl-SjA" firstAttribute="height" secondItem="q9b-1w-3bI" secondAttribute="height" multiplier="0.25" id="p0r-Im-uyc"/>
-                                    <constraint firstItem="EpU-pi-WvL" firstAttribute="height" secondItem="q9b-1w-3bI" secondAttribute="height" multiplier="0.25" id="qxk-w6-zJj"/>
-                                    <constraint firstItem="JII-IG-c3Q" firstAttribute="height" secondItem="q9b-1w-3bI" secondAttribute="height" multiplier="0.25" id="xox-9E-Kef"/>
+                                    <constraint firstItem="Nch-sA-2sF" firstAttribute="height" secondItem="q9b-1w-3bI" secondAttribute="height" multiplier="0.2" id="nMt-5d-eai"/>
+                                    <constraint firstItem="Cvp-Jl-SjA" firstAttribute="height" secondItem="q9b-1w-3bI" secondAttribute="height" multiplier="0.2" id="p0r-Im-uyc"/>
+                                    <constraint firstItem="EpU-pi-WvL" firstAttribute="height" secondItem="q9b-1w-3bI" secondAttribute="height" multiplier="0.2" id="qxk-w6-zJj"/>
+                                    <constraint firstItem="JII-IG-c3Q" firstAttribute="height" secondItem="q9b-1w-3bI" secondAttribute="height" multiplier="0.2" id="xox-9E-Kef"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -102,6 +109,7 @@
                     <navigationItem key="navigationItem" id="QTb-YI-Xvt"/>
                     <connections>
                         <outlet property="eyeLabel" destination="Cvp-Jl-SjA" id="dj0-jC-sNB"/>
+                        <outlet property="filmsLabel" destination="Ybi-Nw-gjx" id="QhY-Td-YTl"/>
                         <outlet property="hairLabel" destination="JII-IG-c3Q" id="kzZ-le-Jbq"/>
                         <outlet property="nameLabel" destination="Nch-sA-2sF" id="Agy-da-4rb"/>
                         <outlet property="planetLabel" destination="EpU-pi-WvL" id="IfQ-2N-OxK"/>
@@ -117,7 +125,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Vjz-P9-dOT" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="z8l-df-qcD">
-                        <rect key="frame" x="0.0" y="0.0" width="896" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -136,9 +144,6 @@
         </systemColor>
         <systemColor name="systemFillColor">
             <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGray3Color">
-            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
