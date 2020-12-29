@@ -6,18 +6,22 @@
 //
 
 import UIKit
+import CoreData
 
 struct Ship: Codable {
-    var id: Int = 0
+    var id: String?
     var title: String?
     var description: String?
+    var price: String?
     
     init(withData data:[String:AnyObject]) {
-        self.id = data["id"] as? Int ?? 0
+        self.id = data["id"] as? String ?? "no ID"
         self.title = data["title"] as? String ?? "untitled"
         self.description = data["description"] as? String ?? "unknown"
+        self.price = data["price"] as? String ?? "no price"
     }
 }
+
 
 class FirstViewController: UIViewController {
     @IBOutlet weak var charTableView: UITableView!
@@ -56,13 +60,26 @@ class FirstViewController: UIViewController {
                         }
                         filtered.forEach { one in
                             let ship = Ship(withData: one)
+                            var shipDB = ShipDBObject()
+                            var shipDescrip = NSEntityDescription.entity(forEntityName: "\(ship.title)", in: AppDelegate.viewContext)
+                            shipDB.createOrUpdateShip(price: ship.price ?? "null", shipDescription: ship.description ?? "null", title: ship.title ?? "null", registryNumber: ship.id ?? "null")
+                            shipDB = ShipDBObject(entity: shipDescrip!, insertInto: AppDelegate.viewContext)
                             self.ships.append(ship)
+                            print("\(shipDB)")
+                        }
+                        DispatchQueue.main.async {
+                            try? AppDelegate.viewContext.save()
                         }
                 }
             }
         }.resume()
     }
 }
+//    func createCoreDataFromShip(ship: Ship) {
+//        var shipDB = ShipDBObject()
+//        let ship : Ship
+//        shipDB.createOrUpdateShip(price: ship.price, shipDescription: ship.description, title: ship.title, registryNumber: ship.id)
+//    }
 }
 
 extension FirstViewController: UITableViewDataSource {
@@ -96,4 +113,5 @@ extension FirstViewController: UITableViewDelegate {
     }
     
 }
+
 
