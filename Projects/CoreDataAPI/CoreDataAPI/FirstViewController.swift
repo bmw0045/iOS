@@ -25,8 +25,10 @@ struct Ship: Codable {
 
 class FirstViewController: UIViewController {
     @IBOutlet weak var charTableView: UITableView!
+    //let secondVC = SecondViewController()
     
     var ships : [Ship] = []
+    //var ship : Ship?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,22 +61,42 @@ class FirstViewController: UIViewController {
                             one as? [String:AnyObject]
                         }
                         filtered.forEach { one in
-                            let ship = Ship(withData: one)
-                            var shipDB = ShipDBObject()
-                            var shipDescrip = NSEntityDescription.entity(forEntityName: "\(ship.title)", in: AppDelegate.viewContext)
-                            shipDB.createOrUpdateShip(price: ship.price ?? "null", shipDescription: ship.description ?? "null", title: ship.title ?? "null", registryNumber: ship.id ?? "null")
-                            shipDB = ShipDBObject(entity: shipDescrip!, insertInto: AppDelegate.viewContext)
+                            var ship = Ship(withData: one)
+                            //var shipDB = ShipDBObject()
+                            //var shipDescrip = NSEntityDescription.entity(forEntityName: "\(ship.title)", in: AppDelegate.viewContext)
+                            
+                            //shipDB.createOrUpdateShip(price: ship.price ?? "null", shipDescription: ship.description ?? "null", title: ship.title ?? "null", registryNumber: ship.id ?? "null")
+                            //shipDB = ShipDBObject(entity: shipDescrip!, insertInto: AppDelegate.viewContext)
+                            let shipDB = ShipEntity(context: AppDelegate.viewContext)
+                            shipDB.title = String(ship.title ?? "unnamed")
+                            shipDB.price = String(ship.price ?? "No Cost")
+                            shipDB.registryNumber = String(ship.id ?? "No ID")
+                            shipDB.shipDescription = String(ship.description ?? "No Description")
                             self.ships.append(ship)
-                            print("\(shipDB)")
+                            print("\(shipDB.title)")
+                            print("\(shipDB.price)")
+                            print("\(shipDB.registryNumber)")
+                            print("\(shipDB.shipDescription)")
+                            
+                            DispatchQueue.main.async {
+                                try? AppDelegate.viewContext.save()
+                                self.charTableView.reloadData()
+                            }
                         }
-                        DispatchQueue.main.async {
-                            try? AppDelegate.viewContext.save()
-                        }
+//                        DispatchQueue.main.async {
+//                            try? AppDelegate.viewContext.save()
+//                        }
                 }
             }
         }.resume()
     }
 }
+  
+    @IBAction func addNewCDObject(_ sender: Any) {
+       // performSegue(withIdentifier: "detailVC", sender: self)
+    }
+    
+    
 //    func createCoreDataFromShip(ship: Ship) {
 //        var shipDB = ShipDBObject()
 //        let ship : Ship
