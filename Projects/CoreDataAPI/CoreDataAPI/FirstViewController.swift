@@ -8,33 +8,68 @@
 import UIKit
 import CoreData
 
+
 struct Ship: Codable {
+    var uuid: UUID!
     var id: String?
     var title: String?
     var description: String?
     var price: String?
     
+    init(uuid: UUID) {
+        
+    }
+    
     init(withData data:[String:AnyObject]) {
-        self.id = data["id"] as? String ?? "no ID"
+        self.uuid = UUID()
+        if let id = data["id"] as? Int {
+            self.id = "\(id)"
+        }
         self.title = data["title"] as? String ?? "untitled"
         self.description = data["description"] as? String ?? "unknown"
-        self.price = data["price"] as? String ?? "no price"
+        if let price = data["price"] as? Int {
+           self.price = "\(price)"
+        }
     }
 }
 
+protocol ShipCreationDelegate {
+    func newShipCreated(ship: Ship, sender: UIViewController)
+    func shipEdited(ship: Ship, sender: UIViewController)
+}
 
-class FirstViewController: UIViewController {
-    @IBOutlet weak var charTableView: UITableView!
+
+class FirstViewController: UIViewController, ShipCreationDelegate {
+    func newShipCreated(ship: Ship, sender: UIViewController) {
+        
+        if let index = ships.firstIndex(where: { one in
+            one.uuid == ship.uuid
+        }) {
+            self.ships[index] = ship
+            shipsTV.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+        } else {
+            ships.append(ship)
+            shipsTV.insertRows(at: [IndexPath(row: ships.count-1, section: 0)], with: .automatic)
+        }
+    }
+    
+    func shipEdited(ship: Ship, sender: UIViewController) {
+        //
+    }
+    
+    @IBOutlet weak var shipsTV: UITableView!
+    @IBOutlet weak var addNewShipButton: UIBarButtonItem!
     //let secondVC = SecondViewController()
     
     var ships : [Ship] = []
+    var selectedShip : Ship?
     //var ship : Ship?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.charTableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
-        self.charTableView.dataSource = self
-        self.charTableView.delegate = self
+        self.shipsTV.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
+        self.shipsTV.dataSource = self
+        self.shipsTV.delegate = self
         fetchShips()
         print("\(ships)")
         
@@ -42,7 +77,8 @@ class FirstViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //fetchShips()
+        selectedShip = nil
+        shipsTV.reloadData()
     }
     
     func fetchShips() {
@@ -61,7 +97,7 @@ class FirstViewController: UIViewController {
                             one as? [String:AnyObject]
                         }
                         filtered.forEach { one in
-                            var ship = Ship(withData: one)
+                            let ship = Ship(withData: one) 
                             //var shipDB = ShipDBObject()
                             //var shipDescrip = NSEntityDescription.entity(forEntityName: "\(ship.title)", in: AppDelegate.viewContext)
                             
@@ -69,8 +105,8 @@ class FirstViewController: UIViewController {
                             //shipDB = ShipDBObject(entity: shipDescrip!, insertInto: AppDelegate.viewContext)
                             let shipDB = ShipEntity(context: AppDelegate.viewContext)
                             shipDB.title = String(ship.title ?? "unnamed")
-                            shipDB.price = String(ship.price ?? "No Cost")
-                            shipDB.registryNumber = String(ship.id ?? "No ID")
+                            shipDB.price = String("\(ship.price)")
+                            shipDB.registryNumber = String("\(ship.id)")
                             shipDB.shipDescription = String(ship.description ?? "No Description")
                             self.ships.append(ship)
                             print("\(shipDB.title)")
@@ -80,7 +116,7 @@ class FirstViewController: UIViewController {
                             
                             DispatchQueue.main.async {
                                 try? AppDelegate.viewContext.save()
-                                self.charTableView.reloadData()
+                                self.shipsTV.reloadData()
                             }
                         }
 //                        DispatchQueue.main.async {
@@ -93,7 +129,7 @@ class FirstViewController: UIViewController {
 }
   
     @IBAction func addNewCDObject(_ sender: Any) {
-       // performSegue(withIdentifier: "detailVC", sender: self)
+       performSegue(withIdentifier: "detailVC", sender: self)
     }
     
     
@@ -111,7 +147,7 @@ extension FirstViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = self.charTableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
+        let cell = self.shipsTV.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
         cell.configure(with: self.ships[indexPath.row])
         return cell
     }
@@ -124,13 +160,16 @@ extension FirstViewController: UITableViewDataSource {
 extension FirstViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedShip = ships[indexPath.row]
         performSegue(withIdentifier: "detailVC", sender: self)
         print(ships[indexPath.row])
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? SecondViewController {
-            destination.myShip = ships[charTableView.indexPathForSelectedRow!.row]
+            //destination.myShip = ships[shipsTV.indexPathForSelectedRow!.row]
+            destination.myShip = selectedShip
+            destination.delegate = self
         }
     }
     
